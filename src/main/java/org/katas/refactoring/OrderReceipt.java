@@ -8,10 +8,10 @@ package org.katas.refactoring;
  */
 public class OrderReceipt {
     public static final double TAXRATE = .10;
-    private Order o;
+    private Order order;
 
-    public OrderReceipt(Order o) {
-        this.o = o;
+    public OrderReceipt(Order order) {
+        this.order = order;
     }
 
     public String printReceipt() {
@@ -23,7 +23,7 @@ public class OrderReceipt {
         // prints lineItems
         double totSalesTx = 0d;
         double totalAmount = 0d;
-        for (LineItem lineItem : o.getLineItems()) {
+        for (LineItem lineItem : order.getLineItems()) {
             printLineItems(output,lineItem);
 
             // calculate sales tax @ rate of 10%
@@ -42,7 +42,7 @@ public class OrderReceipt {
     }
 
     public  StringBuilder printHeaders(StringBuilder output) {
-        output.append("======Printing Orders======\n").append(o.getCustomerName()).append(o.getCustomerAddress());
+        output.append("======Printing Orders======\n").append(order.getCustomerName()).append(order.getCustomerAddress());
         return output;
     }
     public  StringBuilder printLineItems(StringBuilder output, LineItem lineItem) {
