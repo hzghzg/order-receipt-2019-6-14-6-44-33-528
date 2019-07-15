@@ -17,10 +17,7 @@ public class OrderReceipt {
         StringBuilder output = new StringBuilder();
 
         // print headers
-        output.append("======Printing Orders======\n");
-
-        output.append(o.getCustomerName());
-        output.append(o.getCustomerAddress());
+        printHeaders(output);
 
         // prints lineItems
         double totSalesTx = 0d;
@@ -43,6 +40,10 @@ public class OrderReceipt {
         return output.toString();
     }
 
+    public  StringBuilder printHeaders(StringBuilder output) {
+        output.append("======Printing Orders======\n").append(o.getCustomerName()).append(o.getCustomerAddress());
+        return output;
+    }
     public  StringBuilder printLineItems(StringBuilder output, LineItem lineItem) {
         output.append(lineItem.getDescription()).append('\t').append(lineItem.getPrice()).append('\t').append(lineItem.getQuantity()).append('\t').append(lineItem.totalAmount()).append('\n');
         return output;
